@@ -1,0 +1,580 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>黄埔海事处辖区图</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Leaflet 1.9.4 (inlined: artifact CSP only allows Google Fonts stylesheets) */
+.leaflet-image-layer,.leaflet-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane,.leaflet-pane>canvas,.leaflet-pane>svg,.leaflet-tile,.leaflet-tile-container,.leaflet-zoom-box{position:absolute;left:0;top:0}.leaflet-container{overflow:hidden}.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none}.leaflet-tile::selection{background:0 0}.leaflet-safari .leaflet-tile{image-rendering:-webkit-optimize-contrast}.leaflet-safari .leaflet-tile-container{width:1600px;height:1600px;-webkit-transform-origin:0 0}.leaflet-marker-icon,.leaflet-marker-shadow{display:block}.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important}.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-shadow-pane img,.leaflet-container .leaflet-tile,.leaflet-container .leaflet-tile-pane img,.leaflet-container img.leaflet-image-layer{max-width:none!important;max-height:none!important;width:auto;padding:0}.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}.leaflet-container.leaflet-touch-zoom{-ms-touch-action:pan-x pan-y;touch-action:pan-x pan-y}.leaflet-container.leaflet-touch-drag{-ms-touch-action:pinch-zoom;touch-action:none;touch-action:pinch-zoom}.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{-ms-touch-action:none;touch-action:none}.leaflet-container{-webkit-tap-highlight-color:transparent}.leaflet-container a{-webkit-tap-highlight-color:rgba(51,181,229,.4)}.leaflet-tile{filter:inherit;visibility:hidden}.leaflet-tile-loaded{visibility:inherit}.leaflet-zoom-box{width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800}.leaflet-overlay-pane svg{-moz-user-select:none}.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}.leaflet-vml-shape{width:1px;height:1px}.lvml{behavior:url(#default#VML);display:inline-block;position:absolute}.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto}.leaflet-bottom,.leaflet-top{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-control{float:left;clear:both}.leaflet-right .leaflet-control{float:right}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}.leaflet-fade-anim .leaflet-popup{opacity:0;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;transition:opacity .2s linear}.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}.leaflet-zoom-animated{-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0}svg.leaflet-zoom-animated{will-change:transform}.leaflet-zoom-anim .leaflet-zoom-animated{-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);-moz-transition:-moz-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1)}.leaflet-pan-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-tile{-webkit-transition:none;-moz-transition:none;transition:none}.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}.leaflet-interactive{cursor:pointer}.leaflet-grab{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.leaflet-crosshair,.leaflet-crosshair .leaflet-interactive{cursor:crosshair}.leaflet-control,.leaflet-popup-pane{cursor:auto}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable{cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.leaflet-image-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}.leaflet-image-layer.leaflet-interactive,.leaflet-marker-icon.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive,svg.leaflet-image-layer.leaflet-interactive path{pointer-events:visiblePainted;pointer-events:auto}.leaflet-container{background:#ddd;outline-offset:1px}.leaflet-container a{color:#0078a8}.leaflet-zoom-box{border:2px dotted #38f;background:rgba(255,255,255,.5)}.leaflet-container{font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:12px;font-size:.75rem;line-height:1.5}.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px}.leaflet-bar a{background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:#000}.leaflet-bar a,.leaflet-control-layers-toggle{background-position:50% 50%;background-repeat:no-repeat;display:block}.leaflet-bar a:focus,.leaflet-bar a:hover{background-color:#f4f4f4}.leaflet-bar a:first-child{border-top-left-radius:4px;border-top-right-radius:4px}.leaflet-bar a:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-bottom:none}.leaflet-bar a.leaflet-disabled{cursor:default;background-color:#f4f4f4;color:#bbb}.leaflet-touch .leaflet-bar a{width:30px;height:30px;line-height:30px}.leaflet-touch .leaflet-bar a:first-child{border-top-left-radius:2px;border-top-right-radius:2px}.leaflet-touch .leaflet-bar a:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px}.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px}.leaflet-touch .leaflet-control-zoom-in,.leaflet-touch .leaflet-control-zoom-out{font-size:22px}.leaflet-control-layers{box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px}.leaflet-control-layers-toggle{background-image:url(images/layers.png);width:36px;height:36px}.leaflet-retina .leaflet-control-layers-toggle{background-image:url(images/layers-2x.png);background-size:26px 26px}.leaflet-touch .leaflet-control-layers-toggle{width:44px;height:44px}.leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle{display:none}.leaflet-control-layers-expanded .leaflet-control-layers-list{display:block;position:relative}.leaflet-control-layers-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff}.leaflet-control-layers-scrollbar{overflow-y:scroll;overflow-x:hidden;padding-right:5px}.leaflet-control-layers-selector{margin-top:2px;position:relative;top:1px}.leaflet-control-layers label{display:block;font-size:13px;font-size:1.08333em}.leaflet-control-layers-separator{height:0;border-top:1px solid #ddd;margin:5px -10px 5px -6px}.leaflet-default-icon-path{background-image:url(images/marker-icon.png)}.leaflet-container .leaflet-control-attribution{background:#fff;background:rgba(255,255,255,.8);margin:0}.leaflet-control-attribution,.leaflet-control-scale-line{padding:0 5px;color:#333;line-height:1.4}.leaflet-control-attribution a{text-decoration:none}.leaflet-control-attribution a:focus,.leaflet-control-attribution a:hover{text-decoration:underline}.leaflet-attribution-flag{display:inline!important;vertical-align:baseline!important;width:1em;height:.6669em}.leaflet-left .leaflet-control-scale{margin-left:5px}.leaflet-bottom .leaflet-control-scale{margin-bottom:5px}.leaflet-control-scale-line{border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:rgba(255,255,255,.8);text-shadow:1px 1px #fff}.leaflet-control-scale-line:not(:first-child){border-top:2px solid #777;border-bottom:none;margin-top:-2px}.leaflet-control-scale-line:not(:first-child):not(:last-child){border-bottom:2px solid #777}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers{box-shadow:none}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-layers{border:2px solid rgba(0,0,0,.2);background-clip:padding-box}.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:12px}.leaflet-popup-content{margin:13px 24px 13px 20px;line-height:1.3;font-size:13px;font-size:1.08333em;min-height:1px}.leaflet-popup-content p{margin:17px 0;margin:1.3em 0}.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#fff;color:#333;box-shadow:0 3px 14px rgba(0,0,0,.4)}.leaflet-container a.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:0 0}.leaflet-container a.leaflet-popup-close-button:focus,.leaflet-container a.leaflet-popup-close-button:hover{color:#585858}.leaflet-popup-scrolled{overflow:auto}.leaflet-oldie .leaflet-popup-content-wrapper{-ms-zoom:1}.leaflet-oldie .leaflet-popup-tip{width:24px;margin:0 auto}.leaflet-oldie .leaflet-control-layers,.leaflet-oldie .leaflet-control-zoom,.leaflet-oldie .leaflet-popup-content-wrapper,.leaflet-oldie .leaflet-popup-tip{border:1px solid #999}.leaflet-div-icon{background:#fff;border:1px solid #666}.leaflet-tooltip{position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)}.leaflet-tooltip.leaflet-interactive{cursor:pointer;pointer-events:auto}.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before,.leaflet-tooltip-top:before{position:absolute;pointer-events:none;border:6px solid transparent;background:0 0;content:""}.leaflet-tooltip-bottom{margin-top:6px}.leaflet-tooltip-top{margin-top:-6px}.leaflet-tooltip-bottom:before,.leaflet-tooltip-top:before{left:50%;margin-left:-6px}.leaflet-tooltip-top:before{bottom:0;margin-bottom:-12px;border-top-color:#fff}.leaflet-tooltip-bottom:before{top:0;margin-top:-12px;margin-left:-6px;border-bottom-color:#fff}.leaflet-tooltip-left{margin-left:-6px}.leaflet-tooltip-right{margin-left:6px}.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{top:50%;margin-top:-6px}.leaflet-tooltip-left:before{right:0;margin-right:-12px;border-left-color:#fff}.leaflet-tooltip-right:before{left:0;margin-left:-12px;border-right-color:#fff}@media print{.leaflet-control{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+<style>
+/* Layout: chart-table split. The scanned chart fills the right; a narrow "pilot book" panel on the left (stacks under the map on phones). */
+:root {
+  --bg: #eef2f3;
+  --surface: #ffffff;
+  --fg: #13222c;
+  --muted: #5b6b74;
+  --line: #d3dcdf;
+  --navy: #0e3a5c;          /* 海事蓝 */
+  --sea: #2b7d99;           /* chart water */
+  --sea-soft: #dcecf1;
+  --buoy-red: #c43a2f;      /* port-hand buoy */
+  --buoy-green: #2c7d55;    /* starboard-hand buoy */
+  --map-ground: #dfe6e2;
+
+  --c-agency: #0e3a5c;
+  --c-berth: #2b6fb0;
+  --c-gov: #b2324a;
+  --c-ferry: #5b4a9e;
+  --c-yard: #9a5a1f;
+  --c-zone: #c43a2f;
+  --c-mark: #3d4b52;
+
+  --f-display: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --f-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1a20; --surface: #16242c; --fg: #e3ecef; --muted: #96a8b1; --line: #2a3b44;
+    --navy: #8cc1e6; --sea: #5fb3cf; --sea-soft: #1c3440; --buoy-red: #ff7a6b; --buoy-green: #6cc596;
+    --map-ground: #1b282e;
+    --c-agency: #8cc1e6; --c-berth: #6fa8e3; --c-gov: #f07a90; --c-ferry: #a897ea; --c-yard: #e0a062; --c-zone: #ff7a6b; --c-mark: #b6c4ca;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1a20; --surface: #16242c; --fg: #e3ecef; --muted: #96a8b1; --line: #2a3b44;
+  --navy: #8cc1e6; --sea: #5fb3cf; --sea-soft: #1c3440; --buoy-red: #ff7a6b; --buoy-green: #6cc596;
+  --map-ground: #1b282e;
+  --c-agency: #8cc1e6; --c-berth: #6fa8e3; --c-gov: #f07a90; --c-ferry: #a897ea; --c-yard: #e0a062; --c-zone: #ff7a6b; --c-mark: #b6c4ca;
+  color-scheme: dark;
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg); color: var(--fg);
+  font-family: var(--f-body); font-size: 14px; line-height: 1.65;
+}
+.app { display: grid; grid-template-columns: minmax(300px, 400px) 1fr; height: 100%; }
+
+/* ---------- panel ---------- */
+.panel { display: flex; flex-direction: column; min-width: 0; min-height: 0; border-right: 1px solid var(--line); background: var(--surface); }
+.brand { padding: 18px 20px 12px; border-bottom: 1px solid var(--line); }
+.brand .eyebrow { font-size: 11px; letter-spacing: .14em; color: var(--muted); font-weight: 500; }
+.brand h1 { margin: 2px 0 0; font-family: var(--f-display); font-weight: 800; font-size: 22px; line-height: 1.3; color: var(--navy); text-wrap: balance; }
+.brand .coord { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+.tabs { display: flex; gap: 2px; padding: 0 12px; border-bottom: 1px solid var(--line); overflow-x: auto; }
+.tabs button {
+  appearance: none; border: 0; background: none; color: var(--muted); font: inherit; font-weight: 500;
+  padding: 10px 10px 9px; border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap;
+}
+.tabs button[aria-selected="true"] { color: var(--navy); border-bottom-color: var(--navy); }
+.tabs button:focus-visible, .chip:focus-visible, .item:focus-visible, .btn:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
+
+.pane { flex: 1; overflow-y: auto; padding: 16px 20px 28px; min-height: 0; }
+.pane h2 { font-family: var(--f-display); font-size: 16px; font-weight: 600; margin: 18px 0 6px; color: var(--fg); }
+.pane h2:first-child { margin-top: 0; }
+.pane p { margin: 0 0 10px; }
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+.stat { border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; }
+.stat b { display: block; font-family: var(--f-mono); font-size: 20px; line-height: 1.2; color: var(--navy); font-variant-numeric: tabular-nums; }
+.stat span { font-size: 12px; color: var(--muted); }
+
+.bounds { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 6px; }
+.bounds li { display: grid; grid-template-columns: 44px 1fr; gap: 8px; align-items: baseline; }
+.bounds .dir { font-size: 11px; letter-spacing: .1em; font-weight: 700; color: var(--sea); }
+.mono { font-family: var(--f-mono); font-size: 12px; }
+
+.btn {
+  appearance: none; font: inherit; font-weight: 500; cursor: pointer;
+  border: 1px solid var(--navy); background: var(--navy); color: var(--surface);
+  padding: 7px 14px; border-radius: 6px;
+}
+.btn.ghost { background: transparent; color: var(--navy); }
+.btn:disabled { opacity: .4; cursor: default; }
+
+.trait { padding: 12px 0; border-top: 1px solid var(--line); }
+.trait:first-of-type { border-top: 0; padding-top: 0; }
+.trait h3 { margin: 0 0 4px; font-size: 14px; font-weight: 700; }
+.trait p { margin: 0 0 6px; }
+.trait .link { appearance: none; border: 0; background: none; padding: 0; font: inherit; font-size: 12px; color: var(--sea); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+
+.note { border-left: 3px solid var(--buoy-red); padding: 6px 10px; background: var(--sea-soft); border-radius: 0 6px 6px 0; font-size: 12px; margin: 10px 0; }
+
+/* feature list */
+.search { width: 100%; box-sizing: border-box; font: inherit; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--fg); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 12px; }
+.chip {
+  appearance: none; font: inherit; font-size: 12px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px 3px 8px;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--fg);
+}
+.chip i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); }
+.chip[aria-pressed="false"] { color: var(--muted); opacity: .55; }
+.chip[aria-pressed="false"] i { background: transparent; box-shadow: inset 0 0 0 1.5px var(--c); }
+.group-h { font-size: 11px; letter-spacing: .12em; color: var(--muted); font-weight: 700; margin: 12px 0 4px; }
+.item {
+  appearance: none; width: 100%; text-align: left; font: inherit; cursor: pointer; color: var(--fg);
+  display: grid; grid-template-columns: 12px 1fr; gap: 10px; align-items: center;
+  padding: 7px 8px; border: 0; border-radius: 6px; background: none;
+}
+.item:hover { background: var(--sea-soft); }
+.item.on { background: var(--sea-soft); box-shadow: inset 0 0 0 1px var(--sea); }
+.item i { width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
+.item small { display: block; color: var(--muted); font-size: 12px; line-height: 1.4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.empty { color: var(--muted); padding: 12px 0; }
+
+/* tour */
+.tour-step { font-family: var(--f-mono); font-size: 12px; color: var(--sea); }
+.tour h2 { font-size: 19px; margin-top: 2px; }
+.tour-nav { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.dots { display: flex; gap: 5px; margin-top: 14px; }
+.dots span { width: 18px; height: 3px; border-radius: 2px; background: var(--line); }
+.dots span.on { background: var(--navy); }
+
+/* ---------- map ---------- */
+.mapwrap { position: relative; min-width: 0; min-height: 0; }
+#map { position: absolute; inset: 0; background: var(--map-ground); font-family: var(--f-body); }
+.legend {
+  position: absolute; right: 12px; bottom: 12px; z-index: 500; background: var(--surface); color: var(--fg);
+  border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; font-size: 12px; display: grid; gap: 2px;
+}
+.legend div { display: flex; align-items: center; gap: 6px; }
+.legend i { width: 9px; height: 9px; border-radius: 50%; border: 2px solid var(--c); }
+.map-tools { position: absolute; left: 12px; bottom: 12px; z-index: 500; display: flex; gap: 6px; }
+.map-tools .btn { background: var(--surface); color: var(--navy); border-color: var(--line); font-size: 12px; padding: 5px 10px; }
+
+.pin {
+  display: block; width: 100%; height: 100%; box-sizing: border-box; border-radius: 50%;
+  border: 2.5px solid var(--c); background: color-mix(in srgb, var(--c) 8%, transparent);
+  transform: scale(var(--ps, 1));
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.leaflet-marker-icon:hover .pin, .pin.on { transform: scale(calc(var(--ps, 1) * 1.25)); box-shadow: 0 0 0 4px color-mix(in srgb, var(--c) 30%, transparent); }
+.pin.on { animation: ping 1.6s ease-out 2; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c) 55%, transparent); } 100% { box-shadow: 0 0 0 16px transparent; } }
+.pin.hidden-by-filter { display: none; }
+
+.leaflet-container a.leaflet-popup-close-button { color: var(--muted); }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: var(--surface); color: var(--fg); box-shadow: 0 6px 24px rgba(10, 30, 45, .25); }
+.leaflet-popup-content-wrapper { border-radius: 8px; }
+.leaflet-popup-content { margin: 12px 16px 14px; font-size: 13px; line-height: 1.6; max-width: 280px; }
+.pop-cat { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; letter-spacing: .08em; color: var(--c); font-weight: 700; }
+.pop-cat i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+.pop h3 { margin: 2px 0 6px; font-family: var(--f-display); font-size: 17px; font-weight: 600; }
+.pop p { margin: 0 0 6px; }
+.pop .src { font-size: 11px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 6px; margin-top: 8px; }
+.leaflet-tooltip { font-family: var(--f-body); background: var(--surface); color: var(--fg); border-color: var(--line); }
+.leaflet-bar a { background: var(--surface); color: var(--fg); border-bottom-color: var(--line); }
+.leaflet-control-attribution { display: none; }
+
+@media (max-width: 760px) {
+  .app { grid-template-columns: 1fr; grid-template-rows: 56svh auto; height: auto; min-height: 100%; }
+  .mapwrap { order: -1; height: 56svh; }
+  .panel { border-right: 0; border-top: 1px solid var(--line); }
+  .pane { overflow: visible; }
+  .legend { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pin, .pin.on { transition: none; animation: none; }
+}
+</style>
+
+<div class="app">
+  <aside class="panel">
+    <header class="brand">
+      <div class="eyebrow">新人上手 · 辖区智慧地图</div>
+      <h1>广州黄埔海事处辖区</h1>
+      <div class="coord">沙鹭江南口参考点 23°4.869′N 113°26.561′E</div>
+    </header>
+    <nav class="tabs" role="tablist" aria-label="面板">
+      <button role="tab" id="tab-overview" aria-selected="true" data-pane="overview">概况</button>
+      <button role="tab" id="tab-tour" aria-selected="false" data-pane="tour">新人导览</button>
+      <button role="tab" id="tab-list" aria-selected="false" data-pane="list">要素清单</button>
+      <button role="tab" id="tab-traits" aria-selected="false" data-pane="traits">辖区特点</button>
+    </nav>
+
+    <section class="pane" id="pane-overview" role="tabpanel">
+      <div class="stats">
+        <div class="stat"><b>~325</b><span>艘次/日 船舶流量</span></div>
+        <div class="stat"><b>5</b><span>条航道</span></div>
+        <div class="stat"><b id="stat-ferry">7</b><span>个渡口（图上）</span></div>
+      </div>
+      <button class="btn" type="button" id="start-tour">开始新人导览 →</button>
+
+      <h2>管辖水域</h2>
+      <ul class="bounds">
+        <li><span class="dir">西</span><span>东圃大桥以东；新洲过河架空电缆（已拆除）以东</span></li>
+        <li><span class="dir">西南</span><span>沙鹭江南口以北（国家海洋局南海分局码头与参考点连线）</span></li>
+        <li><span class="dir">东南</span><span>黄埔大桥化龙岸边与店艚洲东南嘴连线以北；黄埔大桥主孔以北</span></li>
+        <li><span class="dir">东</span><span>大濠洲岛东南嘴与省石油码头北端连线以北</span></li>
+        <li><span class="dir">另含</span><span>西滘涌、深井河范围内的本局水域，以及黄埔区行政区划内的其他河流、水库、风景园林等封闭水域（新港海事处管辖的除外）</span></li>
+      </ul>
+
+      <h2>管辖岸线</h2>
+      <p>黄埔区岸线（不含黄滘河、墩头涌以南），以及东圃大桥下游、新洲过河架空电缆以东水域沿岸的天河区、海珠区行政区域岸线。</p>
+
+      <h2>航道</h2>
+      <p>辖区共 5 条航道，资料已拍到的有<strong>黄埔水道</strong>、<strong>大濠洲水道</strong>，另在“大二石”段提到<strong>菠萝庙水道</strong>。其余待下一页资料补充。</p>
+
+      <p class="note">底图翻拍自展板《广州黄埔海事处辖区示意图》，文字摘自《黄埔处辖区基本情况》第 1–2 页。示意图不能代替海图，不能用于航行。</p>
+    </section>
+
+    <section class="pane tour" id="pane-tour" role="tabpanel" hidden>
+      <div class="tour-step" id="tour-step"></div>
+      <h2 id="tour-title"></h2>
+      <div id="tour-body"></div>
+      <div class="tour-nav">
+        <button class="btn ghost" type="button" id="tour-prev">← 上一站</button>
+        <button class="btn" type="button" id="tour-next">下一站 →</button>
+      </div>
+      <div class="dots" id="tour-dots"></div>
+    </section>
+
+    <section class="pane" id="pane-list" role="tabpanel" hidden>
+      <input class="search" id="search" type="search" placeholder="搜索码头、渡口、水域…" aria-label="搜索要素">
+      <div class="chips" id="chips"></div>
+      <div id="list"></div>
+    </section>
+
+    <section class="pane" id="pane-traits" role="tabpanel" hidden>
+      <div id="traits"></div>
+    </section>
+  </aside>
+
+  <main class="mapwrap">
+    <div id="map" aria-label="辖区示意图"></div>
+    <div class="map-tools">
+      <button class="btn" type="button" id="fit">看全图</button>
+      <button class="btn" type="button" id="toggle-pins" aria-pressed="true">隐藏标注圈</button>
+    </div>
+    <div class="legend" id="legend"></div>
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+/* ================= 数据（按需增改） =================
+   坐标 x, y 是在 map.jpg（1800×1118 像素）上的像素位置，左上角为 (0,0)。
+   新增要素：照着下面任意一条复制一行，改名字、类别、坐标和说明即可。 */
+const MAP_W = 1800, MAP_H = 1118;
+
+const CATS = {
+  agency: { name: '单位机构', color: '--c-agency' },
+  ferry:  { name: '渡口', color: '--c-ferry' },
+  berth:  { name: '码头', color: '--c-berth' },
+  gov:    { name: '公务/科研码头', color: '--c-gov' },
+  yard:   { name: '船厂', color: '--c-yard' },
+  zone:   { name: '重点水域', color: '--c-zone' },
+  mark:   { name: '界线与桥梁', color: '--c-mark' },
+};
+
+const SRC_MAP = '辖区示意图（展板）';
+const SRC_DOC = '《黄埔处辖区基本情况》';
+
+const FEATURES = [
+  { id: 'hq', cat: 'agency', name: '广州黄埔海事处', x: 862, y: 368,
+    desc: '本处驻地，位于黄埔水道北岸，正对 P5 调头区。', src: SRC_MAP },
+  { id: 'hj3', cat: 'agency', name: '海警三支队', x: 822, y: 692,
+    desc: '驻地位于长洲岛以南水域北岸。', src: SRC_MAP },
+
+  { id: 'yuzhu', cat: 'ferry', name: '鱼珠渡口', x: 634, y: 395, key: true,
+    desc: '港区内的重要渡口之一。客、车渡运量大，渡运航线穿越或靠近主航道。', src: SRC_DOC + ' 辖区特点第 5 条' },
+  { id: 'changzhou', cat: 'ferry', name: '长洲渡口', x: 704, y: 513, key: true,
+    desc: '港区内的重要渡口之一，在长洲岛北岸。客、车渡运量大，渡运航线穿越或靠近主航道。', src: SRC_DOC + ' 辖区特点第 5 条' },
+  { id: 'wuchong', cat: 'ferry', name: '乌涌渡口', x: 1089, y: 428, key: true,
+    desc: '港区内的重要渡口之一，在乌涌河口附近的北岸。客、车渡运量大，渡运航线穿越或靠近主航道。', src: SRC_DOC + ' 辖区特点第 5 条' },
+  { id: 'zhongmatou', cat: 'ferry', name: '中码头渡口', x: 873, y: 420,
+    desc: '北岸渡口，紧挨海事处驻地。', src: SRC_MAP },
+  { id: 'junxiao', cat: 'ferry', name: '黄埔军校渡口', x: 529, y: 523,
+    desc: '长洲岛西北岸的渡口。', src: SRC_MAP },
+  { id: 'hongshengsha', cat: 'ferry', name: '洪圣沙渡口', x: 843, y: 526,
+    desc: '南岸渡口，靠近自然资源部南海局码头。', src: SRC_MAP },
+  { id: 'dajisha', cat: 'ferry', name: '大吉沙渡口', x: 1132, y: 553,
+    desc: '南岸渡口，在大二石水域西侧不远处。', src: SRC_MAP },
+  { id: 'xindanchong', cat: 'ferry', name: '新担涌游艇码头', x: 445, y: 820,
+    desc: '辖区西南部支流内的游艇码头（图上使用渡口图标）。', src: SRC_MAP },
+
+  { id: 'guanghang', cat: 'berth', name: '广航码头', x: 770, y: 408, desc: '北岸码头。', src: SRC_MAP },
+  { id: 'laogang', cat: 'berth', name: '黄埔老港码头', x: 963, y: 424, desc: '北岸码头，在中码头渡口东侧。', src: SRC_MAP },
+  { id: 'sinotrans', cat: 'berth', name: '中外运黄埔仓码头', x: 1127, y: 459, desc: '北岸码头，在乌涌渡口东侧。', src: SRC_MAP },
+  { id: 'liangku', cat: 'berth', name: '海珠粮库码头', x: 295, y: 423, desc: '辖区西段码头。', src: SRC_MAP },
+  { id: 'guangyu', cat: 'berth', name: '广裕码头', x: 1547, y: 563, desc: '东段北岸码头。', src: SRC_MAP },
+  { id: 'jitong', cat: 'berth', name: '集通码头', x: 1626, y: 626, desc: '东段码头，在中远重工南侧。', src: SRC_MAP },
+  { id: 'hengchang', cat: 'berth', name: '恒昌码头', x: 1728, y: 752, desc: '辖区最东段码头。', src: SRC_MAP },
+  { id: 'zhugang', cat: 'berth', name: '珠钢码头', x: 1747, y: 795, desc: '辖区最东段码头，在恒昌码头南侧。', src: SRC_MAP },
+
+  { id: 'scsio', cat: 'gov', name: '中科院南海所码头', x: 333, y: 451, desc: '科研单位码头（图上红色锚标）。', src: SRC_MAP },
+  { id: 'scsfri', cat: 'gov', name: '南海水产所码头', x: 362, y: 530, desc: '科研单位码头（图上红色锚标）。', src: SRC_MAP },
+  { id: 'mnr', cat: 'gov', name: '自然资源部南海局码头', x: 799, y: 518, desc: '公务码头（图上红色锚标），在长洲渡口东侧。', src: SRC_MAP },
+
+  { id: 'wenchong', cat: 'yard', name: '文冲船厂', x: 1384, y: 513, desc: '东段北岸船厂。', src: SRC_MAP },
+  { id: 'cosco', cat: 'yard', name: '中远重工', x: 1589, y: 593, desc: '东段船厂。', src: SRC_MAP },
+  { id: 'hpyard', cat: 'yard', name: '黄埔船厂（长洲厂区）', x: 357, y: 612, desc: '长洲岛西部的船厂。', src: SRC_MAP },
+  { id: 'shengdong', cat: 'yard', name: '盛东船厂', x: 764, y: 593, desc: '长洲岛东侧的船厂。', src: SRC_MAP },
+
+  { id: 'daershi', cat: 'zone', name: '“大二石”水域', x: 1221, y: 530, key: true,
+    shape: ellipse(1221, 530, 34, 15),
+    desc: '大濠洲水道 5 号灯浮至 6 号灯浮之前的航段，俗称“大二石”航段。位于三条水道交汇处，船舶进出菠萝庙水道、大濠洲水道、黄埔水道都要经过这里。航道狭窄、转向点多且相距近、航线交叉、交通流量大，常有船舶在此搁浅。',
+    src: SRC_DOC + ' 辖区特点第 4 条' },
+  { id: 'p5', cat: 'zone', name: 'P5 调头区', x: 823, y: 458,
+    shape: [[797, 440], [849, 440], [849, 477], [797, 477]],
+    desc: '船舶调头水域，在海事处驻地正南方的主航道上。', src: SRC_MAP },
+  { id: 'dianchaozhou', cat: 'zone', name: '店艚洲水域', x: 1352, y: 690,
+    shape: [[1305, 617], [1412, 724], [1333, 720]],
+    desc: '东南边界的参照点之一：辖区以“黄埔大桥化龙岸边与店艚洲东南嘴连线”以北为界。', src: SRC_MAP + '、' + SRC_DOC },
+
+  { id: 'dongpu', cat: 'mark', name: '东圃大桥', x: 150, y: 230,
+    desc: '辖区西边界：东圃大桥以东。', src: SRC_DOC },
+  { id: 'hpbridge', cat: 'mark', name: '黄埔大桥', x: 1500, y: 810,
+    desc: '辖区东南边界：黄埔大桥主孔以北。', src: SRC_DOC },
+];
+
+const TRAITS = [
+  { t: '通航船舶数量多、种类多',
+    b: '据监管指挥系统统计，辖区船舶日均流量约 325 艘次。按航区分，有国际航线船舶、沿海船和内河船；按船舶种类分，有杂货船、散货船、集装箱船、油船、客船、工程船、渔船等。' },
+  { t: '通航密度大',
+    b: '高峰集中在高潮前后：涨潮时段以乘潮进港的小型船舶居多，高潮时段以万吨级以上海船居多。辖区通航水域宽度有限，经过狭窄航段时船舶较集中，密度大。' },
+  { t: '船舶流复杂',
+    b: '沿岸码头多、渡口多，各通航船舶航向复杂，船舶之间形成多种会遇关系。', show: ['berth', 'ferry'], label: '在图上看码头和渡口' },
+  { t: '易搁浅水域多',
+    b: '大濠洲水道东 1 号、3 号和 5 号灯浮连线的西侧水域是易搁浅水域。其中 5 号灯浮至 6 号灯浮之前的航段俗称“大二石”航段，是三条水道交汇处，常有船舶搁浅。', focus: 'daershi', label: '在图上看“大二石”' },
+  { t: '渡口众多',
+    b: '辖区日常渡运繁忙，客、车渡运量大。鱼珠渡口、长洲渡口、乌涌渡口是港区内的重要渡口。渡口之间的航线几乎全部穿越或靠近主航道。', group: ['yuzhu', 'changzhou', 'wuchong'], label: '在图上看三个重要渡口' },
+];
+
+const TOUR = [
+  { title: '先看全貌', fit: true,
+    body: '<p>辖区是一段东西走向的江面：西起<strong>东圃大桥</strong>，东南到<strong>黄埔大桥</strong>。中间有长洲岛等几座江心岛，把水道分成几股。</p><p class="muted small">地图可拖动、缩放。图上的彩色圆圈都能点开看说明。</p>' },
+  { title: '西边界：东圃大桥', focus: 'dongpu', zoom: 0.4,
+    body: '<p>“东圃大桥以东”是辖区西边界。大桥下游、新洲过河架空电缆以东的天河、海珠沿岸岸线也归我们管。</p>' },
+  { title: '我们在这里', group: ['hq', 'p5', 'zhongmatou'],
+    body: '<p><strong>广州黄埔海事处</strong>在北岸，门前就是 <strong>P5 调头区</strong>，旁边是中码头渡口。</p>' },
+  { title: '三个重要渡口', group: ['yuzhu', 'changzhou', 'wuchong'],
+    body: '<p><strong>鱼珠、长洲、乌涌</strong>三个渡口客、车渡运量最大，渡运航线几乎都穿越或靠近主航道，是日常监管的重点。</p>' },
+  { title: '重点盯防：“大二石”', focus: 'daershi', zoom: 0.6,
+    body: '<p>大濠洲水道 5 号至 6 号灯浮之间的航段，三条水道（菠萝庙、大濠洲、黄埔）在这里交汇。航道窄、转向多、航线交叉，<strong>常有船舶搁浅</strong>。</p>' },
+  { title: '东段：码头与船厂', group: ['wenchong', 'guangyu', 'cosco', 'jitong', 'hengchang', 'zhugang'],
+    body: '<p>往东依次是<strong>文冲船厂、广裕码头、中远重工、集通码头、恒昌码头、珠钢码头</strong>，船厂、码头密集，进出靠离泊频繁。</p>' },
+  { title: '东南边界', group: ['hpbridge', 'dianchaozhou'],
+    body: '<p>东南以<strong>黄埔大桥主孔</strong>、<strong>黄埔大桥化龙岸边与店艚洲东南嘴连线</strong>为界，以北归本处管辖。</p><p class="muted small">导览结束。可以到“要素清单”里按类别查找。</p>' },
+];
+
+function ellipse(cx, cy, rx, ry) {
+  const pts = [];
+  for (let i = 0; i < 24; i++) { const a = i / 24 * Math.PI * 2; pts.push([cx + rx * Math.cos(a), cy + ry * Math.sin(a)]); }
+  return pts;
+}
+
+/* ================= 地图 ================= */
+const css = getComputedStyle(document.documentElement);
+const colorOf = cat => css.getPropertyValue(CATS[cat].color).trim();
+const ll = (x, y) => L.latLng(MAP_H - y, x);
+const bounds = L.latLngBounds(ll(0, MAP_H), ll(MAP_W, 0));
+
+const map = L.map('map', {
+  crs: L.CRS.Simple, zoomSnap: 0.25, zoomDelta: 0.5, attributionControl: false,
+  minZoom: -6, maxZoom: 6, maxBounds: bounds.pad(0.15), maxBoundsViscosity: 0.8,
+});
+L.imageOverlay('map.jpg', bounds).addTo(map);
+let FIT = 0;
+function setZoomRange() {
+  map.setMinZoom(-6);
+  FIT = map.getBoundsZoom(bounds);
+  map.setMinZoom(FIT - 0.5);
+  map.setMaxZoom(FIT + 3);
+}
+setZoomRange();
+map.fitBounds(bounds);
+// keep rings about the size of the printed icons underneath (≈30px at zoom 0)
+function scalePins() {
+  const ps = Math.min(1.15, Math.max(0.4, 2 ** map.getZoom()));
+  document.getElementById('map').style.setProperty('--ps', ps.toFixed(3));
+}
+map.on('zoom', scalePins);
+scalePins();
+new ResizeObserver(() => { map.invalidateSize(); setZoomRange(); }).observe(document.getElementById('map'));
+
+const byId = {};
+const active = new Set(Object.keys(CATS));
+let pinsVisible = true;
+
+FEATURES.forEach(f => {
+  const c = `var(${CATS[f.cat].color})`;
+  const size = f.cat === 'zone' ? 18 : 30;
+  const icon = L.divIcon({ className: '', html: `<span class="pin" style="--c:${c}"></span>`, iconSize: [size, size] });
+  const m = L.marker(ll(f.x, f.y), { icon, keyboard: true, title: f.name, riseOnHover: true }).addTo(map);
+  m.bindTooltip(f.name, { direction: 'top', offset: [0, -size / 2] });
+  m.bindPopup(popupHtml(f), { maxWidth: 300, autoPanPadding: [24, 24] });
+  m.on('popupopen', () => select(f.id, false));
+  f.marker = m;
+  if (f.shape) {
+    f.layer = L.polygon(f.shape.map(([x, y]) => ll(x, y)), {
+      color: colorOf(f.cat), weight: 2, fillOpacity: 0.12, dashArray: '5 4',
+    }).addTo(map).bindPopup(popupHtml(f), { maxWidth: 300 });
+  }
+  byId[f.id] = f;
+});
+
+function popupHtml(f) {
+  return `<div class="pop" style="--c:var(${CATS[f.cat].color})">
+    <span class="pop-cat"><i></i>${CATS[f.cat].name}${f.key ? ' · 重点' : ''}</span>
+    <h3>${f.name}</h3><p>${f.desc}</p>
+    <div class="src">来源：${f.src}</div></div>`;
+}
+
+function pinEl(f) { return f.marker.getElement()?.querySelector('.pin'); }
+
+function clearHighlight() { FEATURES.forEach(f => pinEl(f)?.classList.remove('on')); }
+
+let moveSeq = 0;   // newest camera move wins, so a stale moveend can't re-highlight old pins
+function afterMove(fn) { const n = ++moveSeq; map.once('moveend', () => { if (n === moveSeq) fn(); }); }
+
+function highlight(ids) {
+  clearHighlight();
+  ids.forEach(id => { const e = pinEl(byId[id]); if (e) { e.classList.remove('on'); void e.offsetWidth; e.classList.add('on'); } });
+}
+
+function focusOn(id, extraZoom = 0.8, open = true) {
+  const f = byId[id];
+  ensureVisible([f.cat]);
+  map.flyTo(ll(f.x, f.y), Math.min(map.getMaxZoom(), fitZoom() + extraZoom), { duration: 0.6 });
+  highlight([id]);
+  if (open) afterMove(() => f.marker.openPopup()); else ++moveSeq;
+}
+
+function focusGroup(ids) {
+  const fs = ids.map(id => byId[id]);
+  ensureVisible(fs.map(f => f.cat));
+  map.closePopup();
+  map.flyToBounds(L.latLngBounds(fs.map(f => ll(f.x, f.y))).pad(0.35), { duration: 0.6, maxZoom: fitZoom() + 1.2 });
+  afterMove(() => highlight(ids));
+}
+
+function fitZoom() { return FIT; }
+
+function ensureVisible(cats) {
+  let changed = false;
+  cats.forEach(c => { if (!active.has(c)) { active.add(c); changed = true; } });
+  if (!pinsVisible) { pinsVisible = true; changed = true; syncPinToggle(); }
+  if (changed) applyFilter();
+}
+
+/* ================= 面板 ================= */
+const tabs = document.querySelectorAll('.tabs button');
+function showTab(name) {
+  tabs.forEach(b => b.setAttribute('aria-selected', String(b.dataset.pane === name)));
+  document.querySelectorAll('.pane').forEach(p => { p.hidden = p.id !== 'pane-' + name; });
+  try { localStorage.setItem('hp-tab', name); } catch (e) {}
+}
+tabs.forEach(b => b.addEventListener('click', () => showTab(b.dataset.pane)));
+
+// legend + chips
+document.getElementById('legend').innerHTML = Object.values(CATS)
+  .map(c => `<div style="--c:var(${c.color})"><i></i>${c.name}</div>`).join('');
+const chips = document.getElementById('chips');
+chips.innerHTML = Object.entries(CATS).map(([k, c]) =>
+  `<button class="chip" type="button" data-cat="${k}" aria-pressed="true" style="--c:var(${c.color})"><i></i>${c.name}</button>`).join('');
+chips.addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  const k = b.dataset.cat;
+  active.has(k) ? active.delete(k) : active.add(k);
+  applyFilter();
+});
+
+const search = document.getElementById('search');
+search.addEventListener('input', renderList);
+search.addEventListener('keydown', e => {
+  if (e.key === 'Enter') { const first = document.querySelector('#list .item'); if (first) first.click(); }
+});
+
+function applyFilter() {
+  chips.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed', String(active.has(b.dataset.cat))));
+  FEATURES.forEach(f => {
+    const show = pinsVisible && active.has(f.cat);
+    const el = f.marker.getElement(); if (el) el.style.display = show ? '' : 'none';
+    if (f.layer) show ? f.layer.addTo(map) : f.layer.remove();
+  });
+  renderList();
+}
+
+function renderList() {
+  const q = search.value.trim();
+  const list = document.getElementById('list');
+  const html = Object.entries(CATS).map(([k, c]) => {
+    if (!active.has(k)) return '';
+    const items = FEATURES.filter(f => f.cat === k && (!q || f.name.includes(q) || f.desc.includes(q)));
+    if (!items.length) return '';
+    return `<div class="group-h">${c.name} · ${items.length}</div>` + items.map(f =>
+      `<button class="item${f.id === selected ? ' on' : ''}" type="button" data-id="${f.id}" style="--c:var(${c.color})"><i></i><span>${f.name}<small>${f.desc}</small></span></button>`).join('');
+  }).join('');
+  list.innerHTML = html || '<p class="empty">没有找到匹配的要素。换个关键词，或打开上面的类别。</p>';
+}
+document.getElementById('list').addEventListener('click', e => {
+  const b = e.target.closest('.item'); if (b) focusOn(b.dataset.id);
+});
+
+let selected = null;
+function select(id, scroll = true) {
+  selected = id;
+  document.querySelectorAll('#list .item').forEach(b => b.classList.toggle('on', b.dataset.id === id));
+  if (scroll) document.querySelector(`#list .item[data-id="${id}"]`)?.scrollIntoView({ block: 'nearest' });
+}
+
+// traits
+document.getElementById('traits').innerHTML = TRAITS.map((t, i) => `
+  <div class="trait"><h3>${i + 1}. ${t.t}</h3><p>${t.b}</p>
+  ${t.label ? `<button class="link" type="button" data-i="${i}">${t.label} →</button>` : ''}</div>`).join('') +
+  '<p class="note">第 4 条“1 号、3 号和 5 号灯浮”根据纸面手写修改整理，请核对。</p>';
+document.getElementById('traits').addEventListener('click', e => {
+  const b = e.target.closest('.link'); if (!b) return;
+  const t = TRAITS[b.dataset.i];
+  if (t.focus) focusOn(t.focus, 0.6);
+  else if (t.group) focusGroup(t.group);
+  else if (t.show) {
+    active.clear(); t.show.forEach(c => active.add(c)); pinsVisible = true; syncPinToggle(); applyFilter();
+    map.flyToBounds(bounds, { duration: 0.6 });
+  }
+});
+
+// tour
+let step = 0;
+function renderTour() {
+  const s = TOUR[step];
+  document.getElementById('tour-step').textContent = `第 ${step + 1} 站 / 共 ${TOUR.length} 站`;
+  document.getElementById('tour-title').textContent = s.title;
+  document.getElementById('tour-body').innerHTML = s.body;
+  document.getElementById('tour-prev').disabled = step === 0;
+  document.getElementById('tour-next').textContent = step === TOUR.length - 1 ? '回到第一站' : '下一站 →';
+  document.getElementById('tour-dots').innerHTML = TOUR.map((_, i) => `<span class="${i <= step ? 'on' : ''}"></span>`).join('');
+  map.closePopup();
+  if (s.fit) { ++moveSeq; clearHighlight(); map.flyToBounds(bounds, { duration: 0.6 }); }
+  else if (s.focus) focusOn(s.focus, s.zoom ?? 0.8, false);
+  else if (s.group) focusGroup(s.group);
+}
+document.getElementById('tour-prev').addEventListener('click', () => { if (step > 0) { step--; renderTour(); } });
+document.getElementById('tour-next').addEventListener('click', () => { step = (step + 1) % TOUR.length; renderTour(); });
+document.getElementById('start-tour').addEventListener('click', () => { step = 0; showTab('tour'); renderTour(); });
+document.getElementById('tab-tour').addEventListener('click', renderTour);
+
+// map tools
+document.getElementById('fit').addEventListener('click', () => { ++moveSeq; map.closePopup(); clearHighlight(); map.flyToBounds(bounds, { duration: 0.5 }); });
+const pinBtn = document.getElementById('toggle-pins');
+function syncPinToggle() {
+  pinBtn.setAttribute('aria-pressed', String(pinsVisible));
+  pinBtn.textContent = pinsVisible ? '隐藏标注圈' : '显示标注圈';
+}
+pinBtn.addEventListener('click', () => { pinsVisible = !pinsVisible; syncPinToggle(); applyFilter(); });
+
+document.getElementById('stat-ferry').textContent = FEATURES.filter(f => f.cat === 'ferry' && f.id !== 'xindanchong').length;
+renderList();
+let saved = null; try { saved = localStorage.getItem('hp-tab'); } catch (e) {}
+if (saved && saved !== 'tour' && document.getElementById('pane-' + saved)) showTab(saved);
+</script>
