@@ -33,6 +33,7 @@
   --c-yard: #9a5a1f;
   --c-zone: #c43a2f;
   --c-mark: #3d4b52;
+  --c-chan: #d0563b;         /* channel axis, chart-magenta-ish */
 
   --f-display: "Noto Serif SC", "Songti SC", "SimSun", serif;
   --f-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
@@ -43,7 +44,7 @@
     --bg: #0f1a20; --surface: #16242c; --fg: #e3ecef; --muted: #96a8b1; --line: #2a3b44;
     --navy: #8cc1e6; --sea: #5fb3cf; --sea-soft: #1c3440; --buoy-red: #ff7a6b; --buoy-green: #6cc596;
     --map-ground: #1b282e;
-    --c-agency: #8cc1e6; --c-berth: #6fa8e3; --c-gov: #f07a90; --c-ferry: #a897ea; --c-yard: #e0a062; --c-zone: #ff7a6b; --c-mark: #b6c4ca;
+    --c-agency: #8cc1e6; --c-berth: #6fa8e3; --c-gov: #f07a90; --c-ferry: #a897ea; --c-yard: #e0a062; --c-zone: #ff7a6b; --c-mark: #b6c4ca; --c-chan: #ff9070;
     color-scheme: dark;
   }
 }
@@ -51,7 +52,7 @@
   --bg: #0f1a20; --surface: #16242c; --fg: #e3ecef; --muted: #96a8b1; --line: #2a3b44;
   --navy: #8cc1e6; --sea: #5fb3cf; --sea-soft: #1c3440; --buoy-red: #ff7a6b; --buoy-green: #6cc596;
   --map-ground: #1b282e;
-  --c-agency: #8cc1e6; --c-berth: #6fa8e3; --c-gov: #f07a90; --c-ferry: #a897ea; --c-yard: #e0a062; --c-zone: #ff7a6b; --c-mark: #b6c4ca;
+  --c-agency: #8cc1e6; --c-berth: #6fa8e3; --c-gov: #f07a90; --c-ferry: #a897ea; --c-yard: #e0a062; --c-zone: #ff7a6b; --c-mark: #b6c4ca; --c-chan: #ff9070;
   color-scheme: dark;
 }
 
@@ -107,6 +108,24 @@ body {
 .trait:first-of-type { border-top: 0; padding-top: 0; }
 .trait h3 { margin: 0 0 4px; font-size: 14px; font-weight: 700; }
 .trait p { margin: 0 0 6px; }
+.chan { border: 1px solid var(--line); border-radius: 8px; margin-bottom: 12px; overflow: hidden; }
+.chan summary { list-style: none; cursor: pointer; padding: 10px 12px; display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; align-items: baseline; }
+.chan summary::-webkit-details-marker { display: none; }
+.chan summary h3 { margin: 0; font-family: var(--f-display); font-size: 16px; font-weight: 600; color: var(--navy); }
+.chan summary .flow { font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.chan summary .sub { grid-column: 1 / -1; font-size: 12px; color: var(--muted); }
+.chan[open] summary { border-bottom: 1px solid var(--line); background: var(--sea-soft); }
+.chan .body { padding: 10px 12px 12px; }
+.chan h4 { margin: 12px 0 4px; font-size: 12px; letter-spacing: .1em; color: var(--muted); font-weight: 700; }
+.chan h4:first-child { margin-top: 0; }
+.specs { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; margin: 0; font-size: 13px; }
+.specs dt { color: var(--muted); }
+.specs dd { margin: 0; font-variant-numeric: tabular-nums; }
+.chan ol { margin: 0; padding-left: 1.3em; display: grid; gap: 4px; }
+.case { background: var(--bg); border-radius: 6px; padding: 8px 10px; margin: 6px 0; font-size: 13px; }
+.case b { color: var(--buoy-red); }
+.rule { border-left: 3px solid var(--navy); padding: 4px 10px; font-size: 13px; margin: 6px 0; }
+.chan .pending { color: var(--muted); font-size: 13px; }
 .trait .link { appearance: none; border: 0; background: none; padding: 0; font: inherit; font-size: 12px; color: var(--sea); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 
 .note { border-left: 3px solid var(--buoy-red); padding: 6px 10px; background: var(--sea-soft); border-radius: 0 6px 6px 0; font-size: 12px; margin: 10px 0; }
@@ -201,6 +220,7 @@ body {
     </header>
     <nav class="tabs" role="tablist" aria-label="面板">
       <button role="tab" id="tab-overview" aria-selected="true" data-pane="overview">概况</button>
+      <button role="tab" id="tab-channels" aria-selected="false" data-pane="channels">航道</button>
       <button role="tab" id="tab-tour" aria-selected="false" data-pane="tour">新人导览</button>
       <button role="tab" id="tab-list" aria-selected="false" data-pane="list">要素清单</button>
       <button role="tab" id="tab-traits" aria-selected="false" data-pane="traits">辖区特点</button>
@@ -227,9 +247,14 @@ body {
       <p>黄埔区岸线（不含黄滘河、墩头涌以南），以及东圃大桥下游、新洲过河架空电缆以东水域沿岸的天河区、海珠区行政区域岸线。</p>
 
       <h2>航道</h2>
-      <p>辖区共 5 条航道，资料已拍到的有<strong>黄埔水道</strong>、<strong>大濠洲水道</strong>，另在“大二石”段提到<strong>菠萝庙水道</strong>。其余待下一页资料补充。</p>
+      <p>辖区共 5 条航道。已整理<strong>大濠洲水道</strong>（日均约 360 艘次）和<strong>黄埔水道</strong>（日均约 50 艘次），<strong>菠萝庙水道</strong>等待补充。详见“航道”页。</p>
 
-      <p class="note">底图翻拍自展板《广州黄埔海事处辖区示意图》，文字摘自《黄埔处辖区基本情况》第 1–2 页。示意图不能代替海图，不能用于航行。</p>
+      <p class="note">底图翻拍自展板《广州黄埔海事处辖区示意图》，文字摘自《黄埔处辖区基本情况》第 1–6 页。示意图不能代替海图，不能用于航行。</p>
+    </section>
+
+    <section class="pane" id="pane-channels" role="tabpanel" hidden>
+      <p class="muted small">点开每条航道看基本要素、主要风险、案例和监管措施。地图上的红色虚线是航道大致走向，不是精确的航道边线。</p>
+      <div id="channels"></div>
     </section>
 
     <section class="pane tour" id="pane-tour" role="tabpanel" hidden>
@@ -334,8 +359,8 @@ const FEATURES = [
 
   { id: 'daershi', cat: 'zone', name: '“大二石”水域', x: 1221, y: 530, key: true,
     shape: ellipse(1221, 530, 34, 15),
-    desc: '大濠洲水道 5 号灯浮至 6 号灯浮之前的航段，俗称“大二石”航段。位于三条水道交汇处，船舶进出菠萝庙水道、大濠洲水道、黄埔水道都要经过这里。航道狭窄、转向点多且相距近、航线交叉、交通流量大，常有船舶在此搁浅。',
-    src: SRC_DOC + ' 辖区特点第 4 条' },
+    desc: '广州港东河道 3 号至 5、6 号灯浮连线与小船推荐航道之间的浅点水域，俗称“大二石”航段。海图水深 -3.5 米至 -5.8 米，<strong>底质为石质</strong>，深吃水船舶一旦偏航进入极易搁浅。位于菠萝庙、大濠洲、黄埔三条水道交汇处，航道狭窄、转向点多、航线交叉。已设电子围栏，对深吃水船舶全程跟踪。<br>近年案例：2020 年“鸿达鑫 58”、2021 年“桂平恒运 168”在附近搁浅（见“航道”页）。',
+    src: SRC_DOC + ' 辖区特点第 4 条、第 3–4 页' },
   { id: 'p5', cat: 'zone', name: 'P5 调头区', x: 823, y: 458,
     shape: [[797, 440], [849, 440], [849, 477], [797, 477]],
     desc: '船舶调头水域，在海事处驻地正南方的主航道上。', src: SRC_MAP },
@@ -347,6 +372,41 @@ const FEATURES = [
     desc: '辖区西边界：东圃大桥以东。', src: SRC_DOC },
   { id: 'hpbridge', cat: 'mark', name: '黄埔大桥', x: 1500, y: 810,
     desc: '辖区东南边界：黄埔大桥主孔以北。', src: SRC_DOC },
+];
+
+const CHANNELS = [
+  { id: 'dahaozhou', name: '大濠洲水道', flow: '约 360 艘次/日',
+    sub: '东接赤沙水道，西至黄埔老港 8W',
+    // 大致走向（底图像素坐标），仅作示意
+    line: [[965, 452], [1080, 468], [1180, 500], [1260, 560], [1340, 650], [1420, 740], [1490, 820]],
+    specs: [['全长', '3.37 km'], ['航道', '人工航道与天然航道并存'], ['主航道', '设计底宽 120 米，设计底高程 -9 米，底质泥沙'],
+            ['小船推荐航道', '广州港东河道 3 号浮与孤立危险标之间，水深约 -6 米，底质泥沙'], ['日均流量', '约 360 艘次']],
+    risks: ['多条习惯航路交汇，船舶通航量大，不同来向船舶构成交叉相遇局面，存在碰撞危险。',
+            '潮流流速较急。',
+            '时有渔船在水道两侧捕鱼作业，妨碍进出口船舶航行。',
+            '广州港东河道 3 号至 5、6 号灯浮连线与小船推荐航道之间是浅点水域（“大二石”航段），海图水深 -3.5 至 -5.8 米，底质石质。大型深吃水船舶应保持在主航道航行，一旦偏航进入极易搁浅。'],
+    cases: [
+      '<b>案例一</b> 2020 年 12 月 17 日 0019 时左右，“鸿达鑫 58”轮载集装箱 13226 吨，从江苏南通如皋港开往广州黄埔外运码头。途经大濠洲水道时主机故障停机、失去动力，在东河道 5 号灯浮南侧约 60 米处搁浅（概位 113°27′42″E，23°5′19″N）。未造成船体损伤、货损和污染；经过驳减载、拖轮协助乘潮脱浅，直接经济损失约 33 万元。',
+      '<b>案例二</b> 2021 年 2 月 1 日 0950 时左右，“桂平恒运 168”载钢铁线材 2350 吨，从黄埔老港开往中山。出港途经大濠洲水道时，驾驶员不熟悉航道和水域环境，驶入东河道 6 号与 4 号灯浮（现为“大二石灯浮”）之间浅水区搁浅，船首尖舱破损进水，直接经济损失约 20.46 万元。'],
+    rules: ['《广东海事局辖区船舶安全航行规定》第五十七条第二款：禁止船舶在大濠洲航道北段（黄埔大桥以北）、黄埔航道追越他船，高速客船除外。'],
+    measures: ['在“大二石”航段设置电子围栏，对深吃水船舶全程轨迹跟踪。',
+               '联合渔政部门常态化联合执法，清理水道两侧非法捕鱼渔船，及时驱离碍航渔船。',
+               '通过监管指挥系统向过往船舶发布安全预警，引导船舶沿主航道通行，禁止在大濠洲水道追越、会船。'],
+    src: SRC_DOC + ' 第 3–5 页' },
+  { id: 'huangpu', name: '黄埔水道', flow: '约 50 艘次/日',
+    sub: '东起黄埔老港 8W 泊位，西至东圃大桥',
+    line: [[965, 452], [860, 462], [740, 462], [620, 452], [500, 430], [400, 390], [300, 330], [220, 280], [150, 235]],
+    specs: [['航道', '人工航道与天然航道并存，人工航道为主航道'], ['主航道', '宽 120 米，维护水深 -9 米，底质泥沙'],
+            ['天然通航水道', '鱼珠、娥眉沙、4801 厂连线至二沙岛，未设维护水深，底质泥沙'], ['日均流量', '约 50 艘次']],
+    risks: ['沿岸码头密集，设有乡镇渡口、车渡、轮渡，船舶交通流复杂。'],
+    cases: [],
+    rules: ['《广东海事局辖区船舶安全航行规定》第五十七条第二款：禁止船舶在大濠洲航道北段（黄埔大桥以北）、黄埔航道追越他船，高速客船除外。',
+            '同规定第五十四条第二款：高速客船在黄埔航道广州港东河道 6 号灯浮至 9 号灯浮航段，航速不得超过 <strong>12 节</strong>。'],
+    measures: ['电子巡航、现场巡航实时监控通航情况，及时清理航道内、渡口水域等碍航船舶。',
+               '在 6 号至 9 号灯浮航段设置航速限制标识，通过测速设备实时监控高速客船航速，对超 12 节依法处罚。',
+               '通过 VHF 对进入水道的船舶随机点验，要求加强值班瞭望，尤其在码头、渡口附近，提前与周边船舶沟通会遇意图，避免形成紧迫局面。'],
+    src: SRC_DOC + ' 第 5–6 页' },
+  { id: 'boluomiao', name: '菠萝庙水道', flow: '待补充', sub: '资料第 6 页起，下一页还没拍到', pending: true },
 ];
 
 const TRAITS = [
@@ -373,6 +433,8 @@ const TOUR = [
     body: '<p><strong>鱼珠、长洲、乌涌</strong>三个渡口客、车渡运量最大，渡运航线几乎都穿越或靠近主航道，是日常监管的重点。</p>' },
   { title: '重点盯防：“大二石”', focus: 'daershi', zoom: 0.6,
     body: '<p>大濠洲水道 5 号至 6 号灯浮之间的航段，三条水道（菠萝庙、大濠洲、黄埔）在这里交汇。航道窄、转向多、航线交叉，<strong>常有船舶搁浅</strong>。</p>' },
+  { title: '两条主要航道', chans: true,
+    body: '<p>红色虚线是航道大致走向。<strong>大濠洲水道</strong>（东段，日均约 360 艘次）主航道宽 120 米、水深 -9 米；<strong>黄埔水道</strong>（老港 8W 往西到东圃大桥，日均约 50 艘次）。</p><p>两条航道都<strong>禁止追越</strong>（高速客船除外）；黄埔航道 6 号至 9 号灯浮段，高速客船限速 <strong>12 节</strong>。</p>' },
   { title: '东段：码头与船厂', group: ['wenchong', 'guangyu', 'cosco', 'jitong', 'hengchang', 'zhugang'],
     body: '<p>往东依次是<strong>文冲船厂、广裕码头、中远重工、集通码头、恒昌码头、珠钢码头</strong>，船厂、码头密集，进出靠离泊频繁。</p>' },
   { title: '东南边界', group: ['hpbridge', 'dianchaozhou'],
@@ -490,7 +552,8 @@ tabs.forEach(b => b.addEventListener('click', () => showTab(b.dataset.pane)));
 
 // legend + chips
 document.getElementById('legend').innerHTML = Object.values(CATS)
-  .map(c => `<div style="--c:var(${c.color})"><i></i>${c.name}</div>`).join('');
+  .map(c => `<div style="--c:var(${c.color})"><i></i>${c.name}</div>`).join(''
+  + '<div><span style="width:16px;border-top:3px dashed var(--c-chan)"></span>航道走向（示意）</div>';
 const chips = document.getElementById('chips');
 chips.innerHTML = Object.entries(CATS).map(([k, c]) =>
   `<button class="chip" type="button" data-cat="${k}" aria-pressed="true" style="--c:var(${c.color})"><i></i>${c.name}</button>`).join('');
@@ -556,6 +619,42 @@ document.getElementById('traits').addEventListener('click', e => {
   }
 });
 
+// channels
+const chanBox = document.getElementById('channels');
+chanBox.innerHTML = CHANNELS.map((c, i) => `
+  <details class="chan" id="chan-${c.id}"${i === 0 ? ' open' : ''}>
+    <summary><h3>${c.name}</h3><span class="flow">${c.flow}</span><span class="sub">${c.sub}</span></summary>
+    <div class="body">${c.pending ? '<p class="pending">这条航道的资料还没整理，拍下一页发来就补上。</p>' : `
+      <h4>基本要素</h4><dl class="specs">${c.specs.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>
+      <h4>主要风险</h4><ol>${c.risks.map(r => `<li>${r}</li>`).join('')}</ol>
+      ${c.cases.length ? `<h4>典型案例</h4>${c.cases.map(x => `<div class="case">${x}</div>`).join('')}` : ''}
+      <h4>相关规定</h4>${c.rules.map(r => `<div class="rule">${r}</div>`).join('')}
+      <h4>监管措施</h4><ol>${c.measures.map(r => `<li>${r}</li>`).join('')}</ol>
+      <p class="tour-nav"><button class="btn ghost" type="button" data-chan="${c.id}">在图上看走向 →</button>
+      ${c.id === 'dahaozhou' ? '<button class="btn ghost" type="button" data-focus="daershi">看“大二石” →</button>' : ''}</p>
+      <p class="muted small">来源：${c.src}</p>`}
+    </div>
+  </details>`).join('');
+
+const chanLines = {};
+CHANNELS.filter(c => c.line).forEach(c => {
+  const pl = L.polyline(c.line.map(([x, y]) => ll(x, y)), {
+    color: css.getPropertyValue('--c-chan').trim(), weight: 4, opacity: 0.85, dashArray: '10 7', lineCap: 'round',
+  }).addTo(map);
+  pl.bindTooltip(c.name + '（大致走向）', { sticky: true });
+  pl.on('click', () => { showTab('channels'); const d = document.getElementById('chan-' + c.id); d.open = true; d.scrollIntoView({ block: 'start' }); });
+  chanLines[c.id] = pl;
+});
+
+chanBox.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.focus) return focusOn(b.dataset.focus, 0.6);
+  const pl = chanLines[b.dataset.chan]; if (!pl) return;
+  ++moveSeq; map.closePopup(); clearHighlight();
+  map.flyToBounds(pl.getBounds().pad(0.2), { duration: 0.6 });
+  pl.setStyle({ weight: 7 }); setTimeout(() => pl.setStyle({ weight: 4 }), 1800);
+});
+
 // tour
 let step = 0;
 function renderTour() {
@@ -570,6 +669,7 @@ function renderTour() {
   if (s.fit) { ++moveSeq; clearHighlight(); map.flyToBounds(bounds, { duration: 0.6 }); }
   else if (s.focus) focusOn(s.focus, s.zoom ?? 0.8, false);
   else if (s.group) focusGroup(s.group);
+  else if (s.chans) { ++moveSeq; clearHighlight(); map.flyToBounds(L.latLngBounds(Object.values(chanLines).flatMap(l => l.getLatLngs())).pad(0.15), { duration: 0.6 }); }
 }
 document.getElementById('tour-prev').addEventListener('click', () => { if (step > 0) { step--; renderTour(); } });
 document.getElementById('tour-next').addEventListener('click', () => { step = (step + 1) % TOUR.length; renderTour(); });
