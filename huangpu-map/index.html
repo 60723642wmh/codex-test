@@ -76,7 +76,7 @@ body {
 .tabs button[aria-selected="true"] { color: var(--navy); border-bottom-color: var(--navy); }
 .tabs button:focus-visible, .chip:focus-visible, .item:focus-visible, .btn:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
 
-.pane { flex: 1; overflow-y: auto; padding: 16px 20px 28px; min-height: 0; }
+.pane { min-width: 0; flex: 1; overflow-y: auto; padding: 16px 20px 28px; min-height: 0; }
 .pane h2 { font-family: var(--f-display); font-size: 16px; font-weight: 600; margin: 18px 0 6px; color: var(--fg); }
 .pane h2:first-child { margin-top: 0; }
 .pane p { margin: 0 0 10px; }
@@ -105,6 +105,7 @@ body {
 .trait:first-of-type { border-top: 0; padding-top: 0; }
 .trait h3 { margin: 0 0 4px; font-size: 14px; font-weight: 700; }
 .trait p { margin: 0 0 6px; }
+.nojs { position: fixed; left: 0; right: 0; top: 0; z-index: 9999; padding: calc(10px + env(safe-area-inset-top, 0px)) 16px 10px; background: var(--buoy-red); color: #fff; font-size: 14px; line-height: 1.6; }
 .chan { border: 1px solid var(--line); border-radius: 8px; margin-bottom: 12px; overflow: hidden; }
 .chan summary { list-style: none; cursor: pointer; padding: 10px 12px; display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; align-items: baseline; }
 .chan summary::-webkit-details-marker { display: none; }
@@ -141,12 +142,13 @@ body {
 .group-h { font-size: 11px; letter-spacing: .12em; color: var(--muted); font-weight: 700; margin: 12px 0 4px; }
 .item {
   appearance: none; width: 100%; text-align: left; font: inherit; cursor: pointer; color: var(--fg);
-  display: grid; grid-template-columns: 12px 1fr; gap: 10px; align-items: center;
+  display: grid; grid-template-columns: 12px minmax(0, 1fr); gap: 10px; align-items: center;
   padding: 7px 8px; border: 0; border-radius: 6px; background: none;
 }
 .item:hover { background: var(--sea-soft); }
 .item.on { background: var(--sea-soft); box-shadow: inset 0 0 0 1px var(--sea); }
 .item i { width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
+.item > span { min-width: 0; }
 .item small { display: block; color: var(--muted); font-size: 12px; line-height: 1.4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .empty { color: var(--muted); padding: 12px 0; }
 
@@ -206,6 +208,7 @@ body {
 }
 </style>
 
+<div class="nojs" id="nojs">页面没能正常运行，所以点不动。请用浏览器打开这个文件：手机上在微信或文件预览里点右上角“…”，选“用其他应用打开”，再选 Chrome、Safari 或手机自带浏览器；电脑上右键文件，选“打开方式”，再选 Chrome 或 Edge。</div>
 <div class="app">
   <aside class="panel">
     <header class="brand">
@@ -457,12 +460,14 @@ setZoomRange();
 map.fitBounds(bounds);
 // keep rings about the size of the printed icons underneath (≈30px at zoom 0)
 function scalePins() {
-  const ps = Math.min(1.15, Math.max(0.4, 2 ** map.getZoom()));
+  const ps = Math.min(1.15, Math.max(0.4, Math.pow(2, map.getZoom())));
   document.getElementById('map').style.setProperty('--ps', ps.toFixed(3));
 }
 map.on('zoom', scalePins);
 scalePins();
-new ResizeObserver(() => { map.invalidateSize(); setZoomRange(); }).observe(document.getElementById('map'));
+function onResize() { map.invalidateSize(); setZoomRange(); }
+if (window.ResizeObserver) new ResizeObserver(onResize).observe(document.getElementById('map'));
+else window.addEventListener('resize', onResize);
 
 const byId = {};
 const active = new Set(Object.keys(CATS));
@@ -492,9 +497,9 @@ function popupHtml(f) {
     <div class="src">来源：${f.src}</div></div>`;
 }
 
-function pinEl(f) { return f.marker.getElement()?.querySelector('.pin'); }
+function pinEl(f) { const el = f.marker.getElement(); return el ? el.querySelector('.pin') : null; }
 
-function clearHighlight() { FEATURES.forEach(f => pinEl(f)?.classList.remove('on')); }
+function clearHighlight() { FEATURES.forEach(f => { const e = pinEl(f); if (e) e.classList.remove('on'); }); }
 
 let moveSeq = 0;   // newest camera move wins, so a stale moveend can't re-highlight old pins
 function afterMove(fn) { const n = ++moveSeq; map.once('moveend', () => { if (n === moveSeq) fn(); }); }
@@ -540,7 +545,7 @@ tabs.forEach(b => b.addEventListener('click', () => showTab(b.dataset.pane)));
 
 // legend + chips
 document.getElementById('legend').innerHTML = Object.values(CATS)
-  .map(c => `<div style="--c:var(${c.color})"><i></i>${c.name}</div>`).join(''
+  .map(c => `<div style="--c:var(${c.color})"><i></i>${c.name}</div>`).join('')
   + '<div><span style="width:16px;border-top:3px dashed var(--c-chan)"></span>航道走向（示意）</div>';
 const chips = document.getElementById('chips');
 chips.innerHTML = Object.entries(CATS).map(([k, c]) =>
@@ -588,7 +593,8 @@ let selected = null;
 function select(id, scroll = true) {
   selected = id;
   document.querySelectorAll('#list .item').forEach(b => b.classList.toggle('on', b.dataset.id === id));
-  if (scroll) document.querySelector(`#list .item[data-id="${id}"]`)?.scrollIntoView({ block: 'nearest' });
+  const row = document.querySelector(`#list .item[data-id="${id}"]`);
+  if (scroll && row) row.scrollIntoView({ block: 'nearest' });
 }
 
 // traits
@@ -655,9 +661,9 @@ function renderTour() {
   document.getElementById('tour-dots').innerHTML = TOUR.map((_, i) => `<span class="${i <= step ? 'on' : ''}"></span>`).join('');
   map.closePopup();
   if (s.fit) { ++moveSeq; clearHighlight(); map.flyToBounds(bounds, { duration: 0.6 }); }
-  else if (s.focus) focusOn(s.focus, s.zoom ?? 0.8, false);
+  else if (s.focus) focusOn(s.focus, s.zoom != null ? s.zoom : 0.8, false);
   else if (s.group) focusGroup(s.group);
-  else if (s.chans) { ++moveSeq; clearHighlight(); map.flyToBounds(L.latLngBounds(Object.values(chanLines).flatMap(l => l.getLatLngs())).pad(0.15), { duration: 0.6 }); }
+  else if (s.chans) { ++moveSeq; clearHighlight(); map.flyToBounds(L.latLngBounds([].concat(...Object.values(chanLines).map(l => l.getLatLngs()))).pad(0.15), { duration: 0.6 }); }
 }
 document.getElementById('tour-prev').addEventListener('click', () => { if (step > 0) { step--; renderTour(); } });
 document.getElementById('tour-next').addEventListener('click', () => { step = (step + 1) % TOUR.length; renderTour(); });
@@ -677,4 +683,5 @@ document.getElementById('stat-ferry').textContent = FEATURES.filter(f => f.cat =
 renderList();
 let saved = null; try { saved = localStorage.getItem('hp-tab'); } catch (e) {}
 if (saved && saved !== 'tour' && document.getElementById('pane-' + saved)) showTab(saved);
+document.getElementById('nojs').remove();  // script reached the end: page is live
 </script>
